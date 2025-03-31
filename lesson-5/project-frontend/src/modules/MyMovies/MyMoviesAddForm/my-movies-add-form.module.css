@@ -1,0 +1,10 @@
+.formGroup {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.formGroup label {
+    width: 100px;
+}
