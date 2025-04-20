@@ -26,11 +26,12 @@ export const getMovies = async ({
     movieQuery.where("releaseYear").lte(filters.maxReleaseYear);
   }
 
+  const totalItems = await MovieCollection.find().merge(movieQuery).countDocuments();
+
   const items = await movieQuery
     .skip(skip)
     .limit(perPage)
     .sort({ [sortBy]: sortOrder });
-  const totalItems = await MovieCollection.find().merge(movieQuery).countDocuments();
 
   const paginationData = calcPaginationData({ page, perPage, totalItems });
 
