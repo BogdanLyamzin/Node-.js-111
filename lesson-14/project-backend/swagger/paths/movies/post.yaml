@@ -1,0 +1,64 @@
+tags:
+  - Movies
+summary: Create movie
+operationId: createMovie
+description: 'Create a movie with payload'
+security:
+  - bearerAuth: []
+requestBody:
+  content:
+    multipart/form-data:
+      schema:
+        type: object
+        required:
+          - title
+          - director
+          - releaseYear
+        properties:
+          title:
+            description: "Movie's title"
+            type: string
+            example: 'Avatar'
+          director:
+            description: "Movie's director"
+            type: string
+            example: 'James Cameron'
+          favorite:
+            description: 'Is movie favorite'
+            type: boolean
+            example: false  
+          type:
+            description: "Movie's type"
+            type: string
+            enum: ['film', 'serial', 'cartoon']                      
+          releaseYear:
+            description: "Movie's release year"
+            type: number
+            example: 2009
+          posterUrl:
+            description: "Movie's poster"
+            type: string
+            format: binary
+responses:
+  '201':
+    description: Creates a movie
+    content:
+      application/json:
+        schema:
+          type: object
+          required:
+            - status
+            - message
+            - data
+          properties:
+            status:
+              type: integer
+              example: 201
+            message:
+              type: string
+              example: Successfully add movie
+            data:
+              type: object
+              $ref: ../../components/shemas/movie.yaml
+  '401':
+    $ref: '../../components/responses/401.yaml'

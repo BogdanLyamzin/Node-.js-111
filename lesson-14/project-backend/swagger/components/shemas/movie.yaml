@@ -1,0 +1,40 @@
+type: object
+required:
+  - _id
+  - title
+  - director
+  - releaseYear
+  - userId
+properties:
+  _id:
+    description: "Movie's id"
+    type: string
+    example: 65e4decdd286b30065d54af9
+  title:
+    description: "Movie's title"
+    type: string
+    example: 'Avatar'
+  director:
+    description: "Movie's director"
+    type: string
+    example: 'James Cameron'
+  favorite:
+    description: 'Is movie favorite'
+    type: boolean
+    example: false
+  type:
+    description: "Movie's type"
+    type: string
+    enum: ['film', 'serial', 'cartoon']
+  releaseYear:
+    description: "Movie's release year"
+    type: number
+    example: 2009
+  userId:
+    description: "Movie's user id"
+    type: string
+    example: 65e4decdd286b30065d54af9
+  posterUrl:
+    description: "Link to movie's poster"
+    type: string
+    example: https://res.cloudinary.com/uqwgdu/image/upload/image.png
